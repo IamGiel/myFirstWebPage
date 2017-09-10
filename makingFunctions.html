@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Making Functions | MDN</title>
+</head>
+
+
+<body>
+
+<button>Click for the message</button>
+
+</body>
+
+<script>
+
+	var btn = document.querySelector('button');
+	btn.onclick = function() {
+		displayMessage('Woo, this is a different message!');
+	};
+	
+	function displayMessage(msgText, msgType){
+		
+		var html = document.querySelector('html');
+		var panel = document.createElement('div');
+		panel.setAttribute('class','msgBox');
+		html.appendChild(panel);
+
+		var msg = document.createElement('p');
+		msg.textContent = msgText;
+		panel.appendChild(msg);
+
+		var closeBtn = document.createElement('button');
+		closeBtn.textContent = 'x';
+		panel.appendChild(closeBtn);
+
+		closeBtn.onclick = function(){
+			panel.parentNode.removeChild(panel);
+		}
+	}
+
+
+</script>
+
+</html>
